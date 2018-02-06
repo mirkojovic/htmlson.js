@@ -13,38 +13,31 @@
 </html>
 <script type="text/javascript">
 var data=[
-	{
-		color: "red",
-		value: "#f00"
-	},
-	{
-		color: "green",
-		value: "#0f0"
-	},
-	{
-		color: "blue",
-		value: "#00f"
-	},
-	{
-		color: "cyan",
-		value: "#0ff"
-	},
-	{
-		color: "magenta",
-		value: "#f0f"
-	},
-	{
-		color: "yellow",
-		value: "#ff0"
-	},
-	{
-		color: "black",
-		value: "#000"
-	}
+  {
+    "name": "Kitty",
+    "species" : "cat",
+    "foods": {
+      "likes": ["fresh food"],
+      "dislikes": ["stale food"]
+    }
+  },
+  {
+    "name": "Pupster",
+    "species" : "dog",
+    "foods": {
+      "likes": ["tomatoes", "peas"],
+      "dislikes": ["bread"]
+    }
+  },
+  {
+    "name": "Tux",
+    "species" : "cat",
+    "foods": "hahah"
+  }
 ];
 
 $('.testTable').htmlson(data, {
-	0:'COLOR'
+	1:'test',
 },'debug');
 
 </script>
