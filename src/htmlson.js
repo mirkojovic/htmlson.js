@@ -16,9 +16,10 @@
 
   		};
   	}
+
   	log('debug: true');
 
-	var obj = data;
+	  var obj = data;
 
     if (typeof obj === "string") {
 
@@ -27,29 +28,25 @@
     }
 
     log('object: '+JSON.stringify(obj));
-
-  	var optKeys=Object.keys(options);
-
+    log('object depth: '+getDepth(obj))
   	log('headers set: '+JSON.stringify(options));
 
     this.addClass('htmlson-active');
 
-    
     var keys =Object.keys(obj[0]);
 
     log('auto headers: '+JSON.stringify(keys));
 
     var thead=`<thead>`;
 
-    for (var i = 0; i < optKeys.length; i++) {
+    for (var i = 0; i < keys.length; i++) {
 
-    	thead+=`<th>${options[i]}</th>`;
+      if(options[i]==undefined){
 
-    }
-
-    for (var i = optKeys.length; i < keys.length; i++) {
-
-    	thead+=`<th>${keys[i]}</th>`;
+        thead+=`<th>${keys[i]}</th>`;
+      } else{
+        thead+=`<th>${options[i]}</th>`;
+      }
 
     }
 
@@ -71,7 +68,15 @@
 
 	    		tbody+=`<td>${array[i]}</td>`
 
-	    	};
+	    	} else{
+            tbody+=`<td><ul>`;
+            let ob = $.map(array[i], function(value, index) { return value; });
+            for (let i in ob) {
+                tbody+=`<li>${ob[i]}</li>`;
+            }
+            tbody+=`</ul></td>`;
+
+        }
 
 	    }	
 
@@ -95,3 +100,16 @@ function isObject (value) {
 	return value && typeof value === 'object' && value.constructor === Object;
 
 };
+
+getDepth = function (obj) {
+    var depth = 0;
+    if (obj.children) {
+        obj.children.forEach(function (d) {
+            var tmpDepth = getDepth(d)
+            if (tmpDepth > depth) {
+                depth = tmpDepth
+            }
+        })
+    }
+    return 1 + depth
+}
