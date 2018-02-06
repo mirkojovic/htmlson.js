@@ -15,6 +15,6 @@
 },<span class="hljs-string">'debug'</span>); <span class="hljs-comment">//set `debug` to debug in console </span>
 </code></pre>
 <h3><a id="TODO_24"></a>TODO</h3>
-<pre><code>- Set each header independently
+<pre><code>- Set each header independently   :  Done!
 </code></pre>
 <p><strong>Adalen VLADI 2018</strong></p>
