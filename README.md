@@ -1,4 +1,4 @@
-<p><a href="https://github.com/adalenv/htmlson.js"><img src="https://image.ibb.co/f9bEtx/htmlson_js.png" alt="N|Solid"></a></p>
+<p><a href="https://github.com/adalenv/htmlson.js"><img src="http://i.imgur.com/s6beA4q.png" alt="N|Solid"></a></p>
 <h1><a id="New_Features_4"></a>New Features!</h1>
 <ul>
 <li>Convert JSON to HTML</li>
