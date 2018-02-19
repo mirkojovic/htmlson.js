@@ -6,19 +6,7 @@
 (function($) {
 
   $.fn.htmlson = function(data, options,debug) {
-
-    //---debug---//
-  	if (debug=='debug') {
-  		log=function(l){
-  			console.log(l);
-  		}
-  	} else {
-  		log=function(log){
-  		};
-  	}
-    log('debug: true');
-    //---/debug---//
-  	
+	
     //---parse object---//
 	  var obj = data;
     if (typeof obj === "string") {
@@ -26,14 +14,11 @@
     	obj = $.parseJSON(obj);
 
     }
-    log('object: '+JSON.stringify(obj));
-    log('object depth: '+getDepth(obj))
+
     var keys =Object.keys(obj[0]);
-    log('auto headers: '+JSON.stringify(keys));
     //---/parse object---//
 
     //---initialize---//
-  	log('headers set: '+JSON.stringify(options));
     this.addClass('htmlson-active');
     var thead=`<thead>`;
     //---/initialize---//
@@ -55,7 +40,6 @@
 
     thead+=`</thead>`;
 
-    log('table head: '+thead);
     //---/set headers---//
 
     //---set body---//
@@ -91,13 +75,30 @@
 
     tbody+=`</tbody>`;
 
-    log('table body: '+thead);
     //---/set body---//
 
     //---generate output--//
     this.html(thead+tbody);
     //---/generate output--//
 
+
+    //---debug---//
+    if (debug=='debug') {
+      log=function(l){
+        console.log(l);
+      }
+      log('debug: true');
+      log('object: '+JSON.stringify(obj));
+      log('object depth: '+getDepth(obj))
+      log('auto headers: '+JSON.stringify(keys));
+      log('headers set: '+JSON.stringify(options));
+      log('table head: '+thead);
+      log('table body: '+thead);
+    } else {
+      log=function(log){
+      };
+    }
+    //---/debug---//
   };
 
 }(jQuery));
