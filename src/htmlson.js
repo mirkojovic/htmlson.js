@@ -5,18 +5,54 @@
 
 (function($) {
 
-  $.fn.htmlson = function(data, options,debug) {
+  $.fn.htmlson = function(...args) {
 	
-    //---parse object---//
-	  var obj = data;
+    //---parse arguments---//
+    var obj;
+    var options=[];
+    var debug;
+
+    switch(arguments.length) {
+
+      case 0:
+
+        alert("htmlson.js Error: No object passed!");
+        return;
+        break;
+
+      case 1:
+          obj = arguments[0];
+        break;
+
+      case 2:
+        obj = arguments[0];
+        if (typeof arguments[1] === "object") {
+
+          options=arguments[1];
+
+        } else{
+
+          debug='debug';
+
+        }
+
+        break; 
+
+      case 3:
+
+        obj = arguments[0];
+        options=arguments[1];
+        debug=arguments[2]
+
+        break;     
+    }
+
     if (typeof obj === "string") {
-
-    	obj = $.parseJSON(obj);
-
+      obj = $.parseJSON(obj);
     }
 
     var keys =Object.keys(obj[0]);
-    //---/parse object---//
+    //---/parse arguments---//
 
     //---initialize---//
     this.addClass('htmlson-active');
