@@ -1,6 +1,6 @@
 /*
  * htmlson.js 0.2 (Adalen VLADI) | MIT 
- * Github: https://github.com/adalenv/htmlson
+ * Github: https://github.com/adalenv/htmlson.js
  */
 
 (function($) {
