@@ -5,16 +5,29 @@
 </ul>
 <p>You can also:</p>
 <ul>
-<li>Set Table headers or leave it auto</li>
+<li>Set Table headers independently  or leave it auto</li>
 <li>Debug it</li>
 </ul>
 <h3><a id="Usage_14"></a>Usage</h3>
-<p>htmlson.js requires <a href="https://jquery.com/download/">jQuery</a>  3+ to run.</p>
+<p>htmlson.js requires <a href="https://jquery.com/download/">jQuery  3+</a>to run.</p>
+<p>Initialize:</p>
+<pre><code class="language-js">$(<span class="hljs-string">'.testTable'</span>).htmlson(obj); 
+</code></pre>
+<p>Set headers manually:</p>
 <pre><code class="language-js">$(<span class="hljs-string">'.testTable'</span>).htmlson(obj, {
-    <span class="hljs-number">0</span>:<span class="hljs-string">'COLOR'</span>   <span class="hljs-comment">//You can define headers name </span>
-},<span class="hljs-string">'debug'</span>); <span class="hljs-comment">//set `debug` to debug in console </span>
+    <span class="hljs-number">0</span>:<span class="hljs-string">'Color'</span>,
+    <span class="hljs-number">1</span>:<span class="hljs-string">'Price'</span>,
+    <span class="hljs-number">6</span>:<span class="hljs-string">'Speed'</span>
+}); 
 </code></pre>
-<h3><a id="TODO_24"></a>TODO</h3>
-<pre><code>- Set each header independently   :  Done!
+<p>Turn on debug:</p>
+<pre><code class="language-js">$(<span class="hljs-string">'.testTable'</span>).htmlson(obj,<span class="hljs-string">'debug'</span>); 
+<span class="hljs-comment">// or </span>
+$(<span class="hljs-string">'.testTable'</span>).htmlson(obj, {
+    <span class="hljs-number">0</span>:<span class="hljs-string">'Color'</span>,
+    <span class="hljs-number">1</span>:<span class="hljs-string">'Price'</span>,
+    <span class="hljs-number">6</span>:<span class="hljs-string">'Speed'</span>
+},<span class="hljs-string">'debug'</span>); 
 </code></pre>
+
 <p><strong>Adalen VLADI 2018</strong></p>
