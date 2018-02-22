@@ -29,5 +29,9 @@ $(<span class="hljs-string">'.testTable'</span>).htmlson(obj, {
     <span class="hljs-number">6</span>:<span class="hljs-string">'Speed'</span>
 },<span class="hljs-string">'debug'</span>); 
 </code></pre>
+<ul>
+TODO:
+<li>Write HTML table based on json object depth</li>
+</ul>
 
 <p><strong>Adalen VLADI 2018</strong></p>
