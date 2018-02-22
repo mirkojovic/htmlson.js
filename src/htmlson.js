@@ -1,161 +1,158 @@
 /*
- * htmlson.js 0.3 (Adalen VLADI) | MIT 
- * Github: https://github.com/adalenv/htmlson.js
+ * htmlson.js 0.3 (Adalen VLADI, Redjan Ymeraj) | MIT
+ * Github: https://github.com/redjanym/htmlson.js
  */
 
-(function($) {
+(function ($) {
+    $.fn.htmlson = function (configs) {
+        var scope = this;
+        var autoHeaderKeys = [];
+        var thead = '';
+        var tbody = '';
 
-  $.fn.htmlson = function(...args) {
-	
-    //---parse arguments---//
-    var obj;
-    var options=[];
-    var debug;
-
-    switch(arguments.length) {
-
-      case 0:
-
-        alert("htmlson.js Error: No object passed!");
-        return;
-        break;
-
-      case 1:
-          obj = arguments[0];
-        break;
-
-      case 2:
-        obj = arguments[0];
-        if (typeof arguments[1] === "object") {
-
-          options=arguments[1];
-
-        } else{
-
-          debug='debug';
-
+        /***** Start parse configurations *****/
+        if (typeof configs.data !== "object") {
+            console.error("htmlson.js Error: No data passed!");
+            return;
         }
 
-        break; 
+        if (typeof configs.headers !== "object") {
+            configs.headers = {};
+        }
 
-      case 3:
+        if (typeof configs.debug !== "boolean") {
+            configs.debug = false;
+        }
+        /***** End parse configurations *****/
 
-        obj = arguments[0];
-        options=arguments[1];
-        debug=arguments[2]
+        function initialize () {
+            /***** Start set headers *****/
+            thead = `<thead>`;
 
-        break;     
-    }
+            autoHeaderKeys = Object.keys(configs.data[0]);
 
-    if (typeof obj === "string") {
-      obj = $.parseJSON(obj);
-    }
-
-    var keys =Object.keys(obj[0]);
-    //---/parse arguments---//
-
-    //---initialize---//
-    this.addClass('htmlson-active');
-    var thead=`<thead>`;
-    //---/initialize---//
-
-    //---/set headers---//
-    for (var i = 0; i < keys.length; i++) {
-
-      if(options[i]==undefined){
-
-        thead+=`<th>${keys[i]}</th>`;//if auto
-
-      } else{
-
-        thead+=`<th>${options[i]}</th>`;//if user defined
-
-      }
-
-    }
-
-    thead+=`</thead>`;
-
-    //---/set headers---//
-
-    //---set body---//
-    tbody=`<tbody>`;
-
-    for (let i in obj) {
-
-    	tbody+=`<tr>`;
-
-	    let array = $.map(obj[i], function(value, index) { return value; });
-
-	    for (let i in array){
-
-	    	if(!isObject(array[i])){//if not object
-
-	    		tbody+=`<td>${array[i]}</td>`
-
-	    	} else{//if object tonvert to ul
-            tbody+=`<td><ul>`;
-            let ob = $.map(array[i], function(value, index) { return value; });
-            for (let i in ob) {
-                tbody+=`<li>${ob[i]}</li>`;
+            for (var i = 0; i < autoHeaderKeys.length; i++) {
+                if (configs.headers[i] === undefined) {
+                    thead += `<th>${autoHeaderKeys[i]}</th>`;//if auto
+                } else {
+                    thead += `<th>${configs.headers[i]}</th>`;//if user defined
+                }
             }
-            tbody+=`</ul></td>`;
 
+            thead += `</thead>`;
+            /***** End set headers *****/
+
+            /***** Start set body *****/
+            tbody = `<tbody>`;
+
+            for (var i in configs.data) {
+                tbody += `<tr>`;
+
+                var array = $.map(configs.data[i], function (value, index) {
+                    return value;
+                });
+
+                for (var j in array) {
+                    if (!isObject(array[j])) {//if not object
+                        tbody += `<td>${array[j]}</td>`
+                    } else {//if object tonvert to ul
+                        tbody += `<td><ul>`;
+                        var ob = $.map(array[j], function (value, index) {
+                            return value;
+                        });
+                        for (var h in ob) {
+                            tbody += `<li>${ob[h]}</li>`;
+                        }
+                        tbody += `</ul></td>`;
+                    }
+                }
+
+                tbody += `</tr>`;
+            }
+
+            tbody += `</tbody>`;
+
+            /***** End set body *****/
+
+            /***** Start generate output *****/
+            scope.html(thead + tbody);
+            /***** End generate output *****/
         }
 
-	    }	
+        initialize();
 
-		tbody+=`</tr>`;
+        /**
+         * Add new row on table
+         *
+         * @param object
+         */
+        scope.addRow = function (object) {
+            if (isObject(object) === false) {
+                console.error("htmlson.js Error: new row must be of type object!");
+                return;
+            }
 
-    }
+            configs.data.push(object);
 
-    tbody+=`</tbody>`;
+            // restart table rendering
+            initialize();
+        };
 
-    //---/set body---//
+        /**
+         * Add new row on table
+         *
+         * @param index
+         */
+        scope.removeRow = function (index) {
 
-    //---generate output--//
-    this.html(thead+tbody);
-    //---/generate output--//
+            if(typeof configs.data[index] === "undefined"){
+                console.error("htmlson.js Error: invalid!");
+                return;
+            }
+
+            configs.data.splice(index, 1);
+
+            // restart table rendering
+            initialize();
+        };
 
 
-    //---debug---//
-    if (debug=='debug') {
-      log=function(l){
-        console.log(l);
-      }
-      log('debug: true');
-      log('object: '+JSON.stringify(obj));
-      log('object depth: '+getDepth(obj))
-      log('auto headers: '+JSON.stringify(keys));
-      log('headers set: '+JSON.stringify(options));
-      log('table head: '+thead);
-      log('table body: '+thead);
-    } else {
-      log=function(log){
-      };
-    }
-    //---/debug---//
-  };
+        /***** Start debug *****/
+        if (configs.debug) {
+            var log = function (l) {
+                console.log(l);
+            };
 
+            log('debug: true');
+            log('object: ' + JSON.stringify(configs.data));
+            log('object depth: ' + getDepth(configs.data));
+            log('auto headers: ' + JSON.stringify(autoHeaderKeys));
+            log('headers set: ' + JSON.stringify(configs.headers));
+            log('table head: ' + thead);
+            log('table body: ' + tbody);
+        }
+        /***** End debug *****/
+
+        /***** Helper methods *****/
+        function isObject(value) {
+            return value && typeof value === 'object' && value.constructor === Object;
+        }
+
+        function getDepth(obj) {
+            var depth = 0;
+            if (obj.children) {
+                obj.children.forEach(function (d) {
+                    var tmpDepth = getDepth(d);
+
+                    if (tmpDepth > depth) {
+                        depth = tmpDepth
+                    }
+                })
+            }
+            return 1 + depth
+        }
+        /***** Helper methods *****/
+
+        return scope;
+    };
 }(jQuery));
-
-//---functions used--//
-function isObject (value) {
-
-	return value && typeof value === 'object' && value.constructor === Object;
-
-};
-
-getDepth = function (obj) {
-    var depth = 0;
-    if (obj.children) {
-        obj.children.forEach(function (d) {
-            var tmpDepth = getDepth(d)
-            if (tmpDepth > depth) {
-                depth = tmpDepth
-            }
-        })
-    }
-    return 1 + depth
-}
-//---/functions used--//

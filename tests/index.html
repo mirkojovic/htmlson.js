@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title> Test</title>
-	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../src/htmlson.js"></script>
@@ -36,9 +36,30 @@ var data=[
   }
 ];
 
-$('.testTable').htmlson(data, {
-	1:'test',
-},'debug');
+
+var htmlson = $('.testTable').htmlson({
+	data: data,
+	headers: {
+	    1: 'custom header name'
+	},
+	debug: true
+});
+
+setTimeout(function () {
+    htmlson.addRow({
+        "name": "New Kitty",
+        "species" : "cat",
+        "foods": {
+            "likes": ["old food"],
+            "dislikes": ["new food"]
+        }
+    });
+
+
+    setTimeout(function () {
+        htmlson.removeRow(1);
+    }, 2000);
+}, 2000);
 
 </script>
 

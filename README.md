@@ -1,33 +1,43 @@
-<p><a href="https://github.com/adalenv/htmlson.js"><img src="http://i.imgur.com/s6beA4q.png" alt="N|Solid"></a></p>
-<h1><a id="New_Features_4"></a>New Features!</h1>
+<p><img src="http://i.imgur.com/s6beA4q.png" alt="N|Solid"></p>
+<h1>Features</h1>
 <ul>
-<li>Convert JSON to HTML</li>
+<li>Convert JSON array of objects into to HTML table</li>
 </ul>
-<p>You can also:</p>
+<p>Available configurations:</p>
 <ul>
-<li>Set Table headers independently  or leave it auto</li>
-<li>Debug it</li>
+    <li>data: array(array of objects)</li>
+    <li>headers: object(key-value pair index by the number of row and the custom name of the value)</li>
+    <li>debug: boolean(we know what debug means :) )</li>
 </ul>
 <h3><a id="Usage_14"></a>Usage</h3>
-<p>htmlson.js requires <a href="https://jquery.com/download/">jQuery  3+</a>to run.</p>
+<p>htmlson.js requires a min version 1.9.1 of <a href="https://jquery.com/download/">jQuery</a> to run.</p>
 <p>Initialize:</p>
-<pre><code class="language-js">$(<span class="hljs-string">'.testTable'</span>).htmlson(obj); 
-</code></pre>
-<p>Set headers manually:</p>
-<pre><code class="language-js">$(<span class="hljs-string">'.testTable'</span>).htmlson(obj, {
-    <span class="hljs-number">0</span>:<span class="hljs-string">'Color'</span>,
-    <span class="hljs-number">1</span>:<span class="hljs-string">'Price'</span>,
-    <span class="hljs-number">6</span>:<span class="hljs-string">'Speed'</span>
+<pre><code class="language-js">var htmlson = $(<span class="hljs-string">'.testTable'</span>).htmlson({
+    data: data,
+    headers: {
+        1: 'custom header name'
+    },
+    debug: true
 }); 
 </code></pre>
-<p>Turn on debug:</p>
-<pre><code class="language-js">$(<span class="hljs-string">'.testTable'</span>).htmlson(obj,<span class="hljs-string">'debug'</span>); 
-<span class="hljs-comment">// or </span>
-$(<span class="hljs-string">'.testTable'</span>).htmlson(obj, {
-    <span class="hljs-number">0</span>:<span class="hljs-string">'Color'</span>,
-    <span class="hljs-number">1</span>:<span class="hljs-string">'Price'</span>,
-    <span class="hljs-number">6</span>:<span class="hljs-string">'Speed'</span>
-},<span class="hljs-string">'debug'</span>); 
+<p>Add row:</p>
+<pre><code class="language-js">htmlson.addRow({
+   "name": "New Kitty",
+   "species" : "cat",
+   "foods": {
+       "likes": ["old food"],
+       "dislikes": ["new food"]
+   }
+});
 </code></pre>
 
-<p><strong>Adalen VLADI 2018</strong></p>
+</code></pre>
+<p>Remove row by index:</p>
+<pre><code class="language-js">htmlson.removeRow(1);
+</code></pre>
+
+<p>Authors:</p>
+<ul>
+    <li><a href="https://github.com/adalenv">Adalen Vladi</a></li>
+    <li>Redjan Ymeraj</a></li>
+</ul>
