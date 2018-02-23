@@ -26,6 +26,13 @@
         /***** End parse configurations *****/
 
         function initialize () {
+            // validate the
+            if($.isEmptyObject(configs.data)){
+                // set empty table
+                scope.html('');
+                return;
+            }
+
             /***** Start set headers *****/
             thead = `<thead>`;
 
@@ -104,7 +111,6 @@
          * @param index
          */
         scope.removeRow = function (index) {
-
             if(typeof configs.data[index] === "undefined"){
                 console.error("htmlson.js Error: invalid!");
                 return;
