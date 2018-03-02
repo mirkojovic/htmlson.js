@@ -1,5 +1,5 @@
 /*
- * htmlson.js 0.3 (Adalen VLADI, Redjan Ymeraj) | MIT
+ * htmlson.js 1.0.0 (Adalen VLADI, Redjan Ymeraj) | MIT
  * Github: https://github.com/adalenv/htmlson.js
  */
 
