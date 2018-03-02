@@ -40,9 +40,9 @@
 
             for (var i = 0; i < autoHeaderKeys.length; i++) {
                 if (configs.headers[i] === undefined) {
-                    thead += '<th>'+autoHeaderKeys[i]+'</th>';//if auto
+                    thead += '<th>'+autoHeaderKeys[i]+'</th>';//if auto header
                 } else {
-                    thead += '<th>'+configs.headers[i]+'</th>';//if user defined
+                    thead += '<th>'+configs.headers[i]+'</th>';//if user defined header
                 }
             }
 
@@ -62,7 +62,7 @@
                 for (var j in array) {
                     if (!isObject(array[j])) {                      //if not object
                         tbody += '<td>'+array[j]+'</td>'
-                    } else {                                        //if object tonvert to ul
+                    } else {                                        //if object convert to ul
                         tbody += '<td><ul>';
                         var ob = $.map(array[j], function (value, index) {
                             return value;
@@ -95,7 +95,7 @@
          */
         scope.addRow = function (object) {
             if (isObject(object) === false) {
-                console.error("htmlson.js Error: new row must be of type object!");
+                console.error("htmlson.js Error: New row must be of type object!");
                 return;
             }
 
