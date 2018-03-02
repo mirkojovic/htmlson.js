@@ -34,50 +34,50 @@
             }
 
             /***** Start set headers *****/
-            thead = `<thead>`;
+            thead = '<thead>';
 
             autoHeaderKeys = Object.keys(configs.data[0]);
 
             for (var i = 0; i < autoHeaderKeys.length; i++) {
                 if (configs.headers[i] === undefined) {
-                    thead += `<th>${autoHeaderKeys[i]}</th>`;//if auto
+                    thead += '<th>'+autoHeaderKeys[i]+'</th>';//if auto
                 } else {
-                    thead += `<th>${configs.headers[i]}</th>`;//if user defined
+                    thead += '<th>'+configs.headers[i]+'</th>';//if user defined
                 }
             }
 
-            thead += `</thead>`;
+            thead += '</thead>';
             /***** End set headers *****/
 
             /***** Start set body *****/
-            tbody = `<tbody>`;
+            tbody = '<tbody>';
 
             for (var i in configs.data) {
-                tbody += `<tr>`;
+                tbody += '<tr>';
 
                 var array = $.map(configs.data[i], function (value, index) {
                     return value;
                 });
 
                 for (var j in array) {
-                    if (!isObject(array[j])) {//if not object
-                        tbody += `<td>${array[j]}</td>`
-                    } else {//if object tonvert to ul
-                        tbody += `<td><ul>`;
+                    if (!isObject(array[j])) {                      //if not object
+                        tbody += '<td>'+array[j]+'</td>'
+                    } else {                                        //if object tonvert to ul
+                        tbody += '<td><ul>';
                         var ob = $.map(array[j], function (value, index) {
                             return value;
                         });
                         for (var h in ob) {
-                            tbody += `<li>${ob[h]}</li>`;
+                            tbody += '<li>'+ob[h]+'</li>';
                         }
-                        tbody += `</ul></td>`;
+                        tbody += '</ul></td>';
                     }
                 }
 
-                tbody += `</tr>`;
+                tbody += '</tr>';
             }
 
-            tbody += `</tbody>`;
+            tbody += '</tbody>';
 
             /***** End set body *****/
 
