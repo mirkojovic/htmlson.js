@@ -35,7 +35,7 @@ TODO:
 <li>Write HTML table based on json object depth</li>
 </ul>
 
-</code></pre>
+
 <p>Remove row by index:</p>
 <pre><code class="language-js">htmlson.removeRow(1);
 </code></pre>
@@ -43,5 +43,5 @@ TODO:
 <p>Authors:</p>
 <ul>
     <li><a href="https://github.com/adalenv">Adalen Vladi</a></li>
-    <li>Redjan Ymeraj</a></li>
+    <li><a href="https://github.com/redjanym">Redjan Ymeraj</a></li>
 </ul>
