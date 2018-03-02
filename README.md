@@ -30,16 +30,14 @@
    }
 });
 </code></pre>
-<ul>
-TODO:
-<li>Write HTML table based on json object depth</li>
-</ul>
-
 
 <p>Remove row by index:</p>
 <pre><code class="language-js">htmlson.removeRow(1);
 </code></pre>
-
+<ul>
+TODO:
+<li>Write HTML table based on json object depth</li>
+</ul>
 <p>Authors:</p>
 <ul>
     <li><a href="https://github.com/adalenv">Adalen Vladi</a></li>
