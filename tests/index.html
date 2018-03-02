@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title> Test</title>
-	<script type="text/javascript" src="jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../src/htmlson.js"></script>
-</head>
-<body>
-	<table class="testTable table table-hover"></table>
-</body>
+	<head>
+		<title> Test</title>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../src/htmlson.js"></script>
+	</head>
+	<body>
+		<table class="testTable table table-hover"></table>
+		<button type="button" onclick="addRow()">Add row</button>
+		<button type="button" onclick="removeFirstRow()">Remove first row</button>
+	</body>
 </html>
+
 <script type="text/javascript">
-var data=[
-  {
-    "name": "Kitty",
-    "species" : "cat",
-    "foods": {
-      "likes": ["fresh food"],
-      "dislikes": ["stale food"]
-    }
-  },
-  {
-    "name": "Pupster",
-    "species" : "dog",
-    "foods": {
-      "likes": ["tomatoes", "peas"],
-      "dislikes": ["bread"]
-    }
-  },
-  {
-    "name": "Tux",
-    "species" : "cat",
-    "foods": "hahah"
-  }
-];
+	var data=[
+	  {
+		"name": "Kitty",
+		"species" : "cat",
+		"foods": {
+		  "likes": ["fresh food"],
+		  "dislikes": ["stale food"]
+		}
+	  },
+	  {
+		"name": "Pupster",
+		"species" : "dog",
+		"foods": {
+		  "likes": ["tomatoes", "peas"],
+		  "dislikes": ["bread"]
+		}
+	  },
+	  {
+		"name": "Tux",
+		"species" : "cat",
+		"foods": "hahah"
+	  }
+	];
 
-$('.testTable').htmlson(data, {
-	1:'test',
-},'debug');
 
+	var htmlson = $('.testTable').htmlson({
+		data: data,
+		headers: {
+			1: 'custom header name'
+		},
+		debug: false
+	});
+
+	function addRow() {
+		htmlson.addRow({
+			"name": "New Kitty",
+			"species" : "cat",
+			"foods": {
+				"likes": ["old food"],
+				"dislikes": ["new food"]
+			}
+		});
+	}
+
+	function removeFirstRow() {
+		htmlson.removeRow(0);
+	}
 </script>
 
 
