@@ -9,6 +9,16 @@
     <li>headers: object(key-value pair index by the number of row and the custom name of the value)</li>
     <li>debug: boolean(we know what debug means :) )</li>
 </ul>
+<h3><a id="Usage_14"></a>Installation</h3>
+<p>Using NPM:</p>
+<pre><code class="language-js">
+npm install htmlson.js
+</code></pre>
+<p>Include:</p>
+<pre><code class="language-js">
+<script type="text/javascript" src="node_modules/htmlson.js/dist/htmlson.min.js"></script>
+</code></pre>
+
 <h3><a id="Usage_14"></a>Usage</h3>
 <p>htmlson.js requires a min version 1.9.1 of <a href="https://jquery.com/download/">jQuery</a> to run.</p>
 <p>Initialize:</p>
