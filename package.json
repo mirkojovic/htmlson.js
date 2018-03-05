@@ -16,7 +16,15 @@
     "type": "git",
     "url": "git+https://github.com/adalenv/htmlson.js.git"
   },
-  "keywords": [],
+  "keywords": [
+    
+    "htmlson",
+    "json",
+    "html",
+    "adalenv",
+    "htmlson.js",
+    "table"
+    ],
   "author": "Adalen Vladi,Redjan Ymeraj",
   "license": "MIT",
   "bugs": {
