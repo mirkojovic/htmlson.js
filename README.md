@@ -15,10 +15,8 @@
 npm install htmlson.js
 </code></pre>
 <p>Include:</p>
-<pre><code class="language-js">
-<code><script type="text/javascript" src="node_modules/htmlson.js/dist/htmlson.min.js">< <code>/script></code>
-</code></pre>
-
+<pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>node_modules/htmlson.js/dist/htmlson.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+ </pre>
 <h3><a id="Usage_14"></a>Usage</h3>
 <p>htmlson.js requires a min version 1.9.1 of <a href="https://jquery.com/download/">jQuery</a> to run.</p>
 <p>Initialize:</p>
