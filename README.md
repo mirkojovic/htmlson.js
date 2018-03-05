@@ -16,7 +16,7 @@ npm install htmlson.js
 </code></pre>
 <p>Include:</p>
 <pre><code class="language-js">
-<script type="text/javascript" src="node_modules/htmlson.js/dist/htmlson.min.js"></script>
+<code><script type="text/javascript" src="node_modules/htmlson.js/dist/htmlson.min.js">< <code>/script></code>
 </code></pre>
 
 <h3><a id="Usage_14"></a>Usage</h3>
