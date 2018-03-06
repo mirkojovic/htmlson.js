@@ -9,6 +9,7 @@
     <li>headers: object(key-value pair index by the number of row and the custom name of the value)</li>
     <li>debug: boolean(we know what debug means :) )</li>
 </ul>
+<a href="https://codepen.io/adalenv/pen/mXZjaR/">Demo</a>
 <h3><a id="Usage_14"></a>Installation</h3>
 <p>Using NPM:</p>
 <pre><code class="language-js">
