@@ -15,41 +15,30 @@
 </html>
 
 <script type="text/javascript">
-	var data=[
-	  {
-		"name": "Kitty",
-		"species" : "cat",
-		"foods": {
-		  "likes": ["fresh food"],
-		  "dislikes": ["stale food"]
-		}
-	  },
-	  {
-		"name": "Pupster",
-		"species" : "dog",
-		"foods": {
-		  "likes": ["tomatoes", "peas"],
-		  "dislikes": ["bread"]
-		}
-	  },
-	  {
-		"name": "Tux",
-		"species" : "cat",
-		"foods": "hahah"
-	  }
-	];
+	$.ajax({
+		url: 'exampleData.json',
+		type: 'GET',
+		dataType: 'json',
+	})
+	.done(function(resp) {
+
+		testTable = $('.testTable').htmlson({
+			data: resp,
+			headers: {
+				1: 'custom header name'
+			},
+			debug: false
+		});
+
+	})
+	.fail(function() {
+		console.log("error");
+	})
 
 
-	var htmlson = $('.testTable').htmlson({
-		data: data,
-		headers: {
-			1: 'custom header name'
-		},
-		debug: false
-	});
 
 	function addRow() {
-		htmlson.addRow({
+		testTable.addRow({
 			"name": "New Kitty",
 			"species" : "cat",
 			"foods": {
@@ -60,7 +49,7 @@
 	}
 
 	function removeFirstRow() {
-		htmlson.removeRow(0);
+		testTable.removeRow(0);
 	}
 </script>
 
