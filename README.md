@@ -29,6 +29,9 @@ npm install htmlson.js
     debug: true
 }); 
 </code></pre>
+<p>Convert html table to JSON object:</p>
+<pre><code class="language-js">var obj = htmlson.toJson();
+</code></pre>
 <p>Add row:</p>
 <pre><code class="language-js">htmlson.addRow({
    "name": "New Kitty",

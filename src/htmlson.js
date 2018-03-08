@@ -122,6 +122,30 @@
             initialize();
         };
 
+        /**
+         * Convert html table to json
+         */
+        scope.toJson = function(){
+            var head = this.find('tr:first').get().map(function(row) {
+                return $(row).find('th').get().map(function(cell) {
+                    return $(cell).html();
+                });
+            });
+            var body = this.find('tr').not('tr:first').get().map(function(row) {
+                return $(row).find('td').get().map(function(cell) {
+                    return $(cell).html();
+                });
+            });
+
+            var a={};
+            a.head=head;
+            a.body=body;
+
+            return a;
+           
+        };
+
+
 
         /***** Start debug *****/
         if (configs.debug) {
