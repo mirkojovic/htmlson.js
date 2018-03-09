@@ -1,7 +1,8 @@
 <p><img src="http://i.imgur.com/s6beA4q.png" alt="N|Solid"></p>
 <h1>Features</h1>
 <ul>
-<li>Convert JSON array of objects into to HTML table</li>
+<li>Convert JSON array of objects into to HTML table!</li>
+<li>Convert HTML table into JSON object!</li>
 </ul>
 <p>Available configurations:</p>
 <ul>
