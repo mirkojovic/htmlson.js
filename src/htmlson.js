@@ -1,5 +1,5 @@
 /*
- * htmlson.js 1.0 (Adalen VLADI, Redjan Ymeraj) | MIT
+ * htmlson.js v.1 (Adalen VLADI, Redjan Ymeraj) | MIT
  * Github: https://github.com/adalenv/htmlson.js
  */
 
@@ -152,14 +152,13 @@
             var log = function (l) {
                 console.log(l);
             };
-
-            log('debug: true');
-            log('object: ' + JSON.stringify(configs.data));
-            log('object depth: ' + getDepth(configs.data));
-            log('auto headers: ' + JSON.stringify(autoHeaderKeys));
-            log('headers set: ' + JSON.stringify(configs.headers));
-            log('table head: ' + thead);
-            log('table body: ' + tbody);
+            log('Debug: true');
+            log('Object: ' + JSON.stringify(configs.data));
+            log('Object depth: ' + getDepth(configs.data));
+            log('Auto headers: ' + JSON.stringify(autoHeaderKeys));
+            log('Headers set: ' + JSON.stringify(configs.headers));
+            log('Table head: ' + thead);
+            log('Table body: ' + tbody);
         }
         /***** End debug *****/
 
