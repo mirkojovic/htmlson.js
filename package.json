@@ -14,21 +14,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adalenv/htmlson.js.git"
+    "url": "git+https://github.com/mirkojovic/htmlson.js.git"
   },
   "keywords": [
     "htmlson",
     "jquery-plugin",
     "json",
     "html",
-    "adalenv",
+    "mirkojovic",
     "htmlson.js",
-    "table"
+    "table",
+    "json to table HTML"
   ],
-  "author": "Adalen Vladi,Redjan Ymeraj",
+  "author": "Adalen Vladi,Redjan Ymeraj, Mirko Jovic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/adalenv/htmlson.js/issues"
+    "url": "https://github.com/mirkojovic/htmlson.js/issues"
   },
-  "homepage": "https://adalenv.github.io/htmlson.js"
+  "homepage": "https://mirkojovic.github.io/htmlson.js"
 }
