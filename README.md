@@ -61,6 +61,8 @@ TODO:
 
 <p>Authors:</p>
 <ul>
-    <li><a href="https://github.com/adalenv">Adalen Vladi</a></li>
-    <li><a href="https://github.com/redjanym">Redjan Ymeraj</a></li>
+    <li><a href="https://github.com/mirkojovic">Mirko Jovic</a></li>
+	<p>Original Authors (before Version 1.0):</p>
+	<li><a href="https://github.com/adalenv">Adalen Vladi </a></li>
+    <li><a href="https://github.com/redjanym">Redjan Ymeraj </a></li>
 </ul>
