@@ -10,6 +10,11 @@
     <li>headers: object(key-value pair index by the number of row and the custom name of the value)</li>
     <li>debug: boolean(we know what debug means :) )</li>
 </ul>
+<h3>Version 2.0.0</h3>
+<ul>
+<li>Added headers `class` name to header cells with format `"header_[object_key]"` </li>
+<li>Added row `class` name to row cells with format `"row[object_key]"` </li>
+</ul>
 <a href="https://codepen.io/adalenv/pen/mXZjaR/">Demo</a>
 <h3><a id="Usage_14"></a>Installation</h3>
 <p>Using NPM:</p>
