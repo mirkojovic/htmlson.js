@@ -44,10 +44,11 @@
 
             for (var i = 0; i < autoHeaderKeys.length; i++) {
                 if (configs.headers[i] === undefined) {
-                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + autoHeaderKeys[i]+'</th>';//if auto heade.
+                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + autoHeaderKeys[i]+'</th>';//if auto header.
                     // add class llike "header_[header key]", for example "header_Jan"
                 } else {
                     thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + configs.headers[i]+'</th>';//if user defined header
+                    // add class llike "header_[header key]", for example "header_Jan"
                 }
             }
 
