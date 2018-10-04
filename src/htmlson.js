@@ -44,11 +44,16 @@
 
             for (var i = 0; i < autoHeaderKeys.length; i++) {
                 if (configs.headers[i] === undefined) {
-                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + autoHeaderKeys[i]+'</th>';//if auto header.
-                    // add class llike "header_[header key]", for example "header_Jan"
+                    //if auto header.
+                    
+                    //create <thead> tag and add class like "header_[header_key]", for example "header_Jan"
+                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + autoHeaderKeys[i]+'</th>';
+                    
                 } else {
-                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + configs.headers[i]+'</th>';//if user defined header
-                    // add class llike "header_[header key]", for example "header_Jan"
+                    //if user defined header
+                    
+                    // create <thead> tag and add class like "header_[header_key]", for example "header_Custom"
+                    thead += '<th class = "header_'+ configs.headers[i] + '">' + configs.headers[i]+'</th>';
                 }
             }
 
@@ -59,7 +64,9 @@
             tbody = '<tbody>';
 
             for (var i in configs.data) {
+                // add class like "row_[row_index]", for example "row_0"
                 tbody += '<tr class = "row_'+ i +'">';
+                    
 
                 var array = $.map(configs.data[i], function (value, index) {
                     return value;
