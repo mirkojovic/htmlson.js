@@ -51,6 +51,11 @@ npm install htmlson.js
 TODO:
 <li>Write HTML table based on json object depth</li>
 </ul>
+<p>Updater:</p>
+<ul>
+    <li><a href="https://github.com/mirkojovic">Mirko Jovic</a></li>
+    
+    </ul>
 <p>Authors:</p>
 <ul>
     <li><a href="https://github.com/adalenv">Adalen Vladi</a></li>
