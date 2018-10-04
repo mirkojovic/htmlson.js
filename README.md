@@ -3,6 +3,8 @@
 <ul>
 <li>Convert JSON array of objects into to HTML table!</li>
 <li>Convert HTML table into JSON object!</li>
+<li>Header Class name: add class name with format <th class = "header_[name]"></li>
+<li>Row Class name: add class name with format <th class = "row_[number]"></li>    
 </ul>
 <p>Available configurations:</p>
 <ul>
