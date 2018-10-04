@@ -1,23 +1,27 @@
 /*
- * htmlson.js v.1 (Adalen VLADI, Redjan Ymeraj) | MIT
- * Github: https://github.com/adalenv/htmlson.js
+ * htmlson.js 2.0.0 (Mirko Jovic) | MIT
+ * Github: https://github.com/mirkojovic/htmlson.js
  */
 
 (function ($) {
     $.fn.htmlson = function (configs) {
         var scope = this;
         var autoHeaderKeys = [];
-        var thead = '';
-        var tbody = '';
+        var thead = "";
+        var tbody = "";
+        //var exceptedColumn = [];    //to be implemented
+        //var exceptedRow = [];       //to be implemented
 
+        
         /***** Start parse configurations *****/
         if (typeof configs.data !== "object") {
             console.error("htmlson.js Error: No data passed!");
             return;
         }
-
+        
         if (typeof configs.headers !== "object") {
             configs.headers = {};
+          
         }
 
         if (typeof configs.debug !== "boolean") {
@@ -40,9 +44,10 @@
 
             for (var i = 0; i < autoHeaderKeys.length; i++) {
                 if (configs.headers[i] === undefined) {
-                    thead += '<th>'+autoHeaderKeys[i]+'</th>';//if auto header
+                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + autoHeaderKeys[i]+'</th>';//if auto heade.
+                    // add class llike "header_[header key]", for example "header_Jan"
                 } else {
-                    thead += '<th>'+configs.headers[i]+'</th>';//if user defined header
+                    thead += '<th class = "header_'+ autoHeaderKeys[i] + '">' + configs.headers[i]+'</th>';//if user defined header
                 }
             }
 
@@ -53,7 +58,7 @@
             tbody = '<tbody>';
 
             for (var i in configs.data) {
-                tbody += '<tr>';
+                tbody += '<tr class = "row_'+ i +'">';
 
                 var array = $.map(configs.data[i], function (value, index) {
                     return value;
@@ -122,43 +127,22 @@
             initialize();
         };
 
-        /**
-         * Convert html table to json
-         */
-        scope.toJson = function(){
-            var head = this.find('tr:first').get().map(function(row) {
-                return $(row).find('th').get().map(function(cell) {
-                    return $(cell).html();
-                });
-            });
-            var body = this.find('tr').not('tr:first').get().map(function(row) {
-                return $(row).find('td').get().map(function(cell) {
-                    return $(cell).html();
-                });
-            });
-
-            var a={};
-            a.head=head;
-            a.body=body;
-
-            return a;
-           
-        };
-
-
 
         /***** Start debug *****/
         if (configs.debug) {
             var log = function (l) {
                 console.log(l);
             };
-            log('Debug: true');
-            log('Object: ' + JSON.stringify(configs.data));
-            log('Object depth: ' + getDepth(configs.data));
-            log('Auto headers: ' + JSON.stringify(autoHeaderKeys));
-            log('Headers set: ' + JSON.stringify(configs.headers));
-            log('Table head: ' + thead);
-            log('Table body: ' + tbody);
+
+            log('debug: true');
+            log('object: ' + JSON.stringify(configs.data));
+            log('object depth: ' + getDepth(configs.data))
+            log('auto headers: ' + JSON.stringify(autoHeaderKeys));
+            log('headers set: ' + JSON.stringify(configs.headers));
+            log('table head: ' + thead );
+            log("-----");
+            log('table body: ' + tbody);
+            log("-----");
         }
         /***** End debug *****/
 
